@@ -14,11 +14,10 @@ Feature: Como usuario quiero dar clic al Most liked posts
   Scenario: comentar post
     When escribo en la caja: La vida es elegir, puedes elegir ser una víctima o cualquier otra cosa que te propongas. EL GUERRERO PACÍFICO
     And doy clic en el boton Comment
-    Then se debe agregar a la lista, el nuevo comentario.
-
-    Scenario: compartir post
-      When doy clic en el boton share (Compartir)
-      And confirmo que deseo compartir, dando clic el boton share (Compartir)
-      Then debe aparece el aviso Success! Successfully
+    Then se debe agregar a la lista, La vida es elegir, puedes elegir ser una víctima o cualquier otra cosa que te propongas. EL GUERRERO PACÍFICO
 
 
+  Scenario: compartir post
+    When doy clic en el boton share (Compartir)
+    And confirmo que deseo compartir, dando clic el boton share (Compartir)
+    Then debe aparece el aviso Successfully Shared

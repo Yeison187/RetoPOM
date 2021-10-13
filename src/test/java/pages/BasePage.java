@@ -151,7 +151,7 @@ public class BasePage {
     }
 
     public List<WebElement> bringMeAllElements(String locator) {
-        return driver.findElements(By.className(locator));
+        return driver.findElements(By.xpath(locator));
     }
 
     //Funcion para mostrar el type ="file" en caso de estar oculto
