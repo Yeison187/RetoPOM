@@ -68,60 +68,6 @@ public class BasePage {
         FindCssSelector(locator).sendKeys(textToWrite);
     }
 
-    //Esto es para dar click en las opciones del select con value tipo text
-    public void selectFromDropdownByValue(String locator, String valueToSelect) {
-        Select dropdown = new Select(Find(locator));
-        dropdown.selectByValue(valueToSelect);
-    }
-
-    //Esto es para dar click en las opciones del select con value tipo int
-    public void selectFromDropdownByIndex(String locator, int valueToSelect) {
-        Select dropdown = new Select(Find(locator));
-        dropdown.selectByIndex(valueToSelect);
-    }
-
-    //Esto es para dar click en las opciones del con texto que ve el usuario
-    public void selectFromDropdownByText(String locator, String valueToSelect) {
-        Select dropdown = new Select(Find(locator));
-        dropdown.selectByVisibleText(valueToSelect);
-    }
-
-    //Funcion para hacer un hoverOverElement (pasar el cursor sobre algo)
-    public void hoverOverElement(String locator) {
-        action.moveToElement(Find(locator));
-    }
-
-    // funcion para hacer doble click
-    public void doubleClick(String locator) {
-        action.doubleClick(Find(locator));
-    }
-
-    // click derecho
-    public void rightClick(String locator) {
-        action.contextClick(Find(locator));
-    }
-
-    //Buscar en tablas
-    public String getValueFromTable(String locator, int row, int colum) {
-        String cellINeed = locator + "/table/tbody/tr[" + row + "]/td[" + colum + "]";
-        return Find(cellINeed).getText();
-    }
-
-    //Agregar valores a una tabla
-    public void setValueOnTable(String locator, int row, int colum, String stringToSend) {
-        String cellINeed = locator + "/table/tbody/tr[" + row + "]/td[" + colum + "]";
-        Find(cellINeed).sendKeys(stringToSend);
-    }
-
-    //
-    public void switchToiFrame(int iFrameId) {
-        driver.switchTo().frame(iFrameId);
-    }
-
-    public void switchToParentFrame() {
-        driver.switchTo().parentFrame();
-    }
-
     public void dismmissAlert() {
         try {
             driver.switchTo().alert().dismiss();
@@ -139,16 +85,6 @@ public class BasePage {
     // verificar que un webElement esta en la page
     public boolean elementIsDisplayed(String locator) {
         return Find(locator).isDisplayed();
-    }
-
-    //verifica si por ejemplo un boton esta habilitado
-    public boolean elementIsEnabled(String locator) {
-        return Find(locator).isEnabled();
-    }
-
-    //verifica si por ejemplo checkbox esta seleccionado
-    public boolean elementIsSelect(String locator) {
-        return Find(locator).isSelected();
     }
 
     public List<WebElement> bringMeAllElements(String locator) {
