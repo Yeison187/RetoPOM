@@ -8,7 +8,7 @@ import java.util.List;
 public class ModuloBuzzPage extends BasePage {
     private String optionBuzz = "//b[contains(text(),'Buzz')]";
     private String mostLikedPost = "//div[@id='rightBarHeadingMl']";
-    private String threePost = "#likeRaw_1";
+    private String threePost = "//body[1]/div[1]/div[3]/div[1]/div[4]/div[2]/div[1]/div[2]/div[6]";
     private String likePost = "//body[1]/div[1]/div[3]/div[1]/div[6]/div[5]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]";
     private String like = "//body[1]/div[1]/div[3]/div[1]/div[6]/div[5]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/a[1]/img[1]";
     private String boxComment = "//body[1]/div[1]/div[3]/div[1]/div[6]/div[5]/div[1]/div[2]/div[1]/div[3]/div[4]/div[1]/form[1]/textarea[1]";
@@ -33,7 +33,7 @@ public class ModuloBuzzPage extends BasePage {
     }
 
     public void clickThreePost() {
-        clickElementCss(threePost);
+        clickElement(threePost);
     }
 
     public void likePost() {
@@ -42,7 +42,6 @@ public class ModuloBuzzPage extends BasePage {
 
     public boolean like() {
         boolean value = elementIsDisplayed(like);
-        clickElement(closeAlert);
         return value;
 
     }
@@ -63,7 +62,6 @@ public class ModuloBuzzPage extends BasePage {
         for (WebElement e : list) {
             stringFromList.add(e.getText());
         }
-        clickElement(closeAlert);
         return stringFromList;
     }
 
@@ -75,8 +73,7 @@ public class ModuloBuzzPage extends BasePage {
         clickElement(confirmShare);
     }
 
-    public void validateShare() {
-    }
+
 
 
 }
