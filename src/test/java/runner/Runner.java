@@ -13,13 +13,14 @@ import pages.BasePage;
         features = {"src/test/resources/features"},
         glue = "steps",
         snippets = CucumberOptions.SnippetType.CAMELCASE
+        //plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","json:target/cucumber-reports.json"}
 
 )
 
 public class Runner {
     @AfterClass
     public static void clearDriver() {
-        //BasePage.closeBrowser();
+        BasePage.closeBrowser();
     }
 
 }
