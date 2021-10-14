@@ -24,25 +24,28 @@ public class ModuloBuzzSteps {
 
     @Then("el corazón debe cambiar el color: de gris a naranja")
     public void el_corazón_debe_cambiar_el_color_de_gris_a_naranja() {
-
+        if (buzzPage.like()) {
+            System.out.println("El icono corazon esta de color naranja");
+        } else {
+            System.out.println("El icono corazon esta de color gris");
+        }
     }
 
     @When("^escribo en la caja: (.+)$")
     public void escribo_en_la_caja_de_comentario(String comentario) {
-        buzzPage.addComment(comentario);
+        buzzPage.writeBoxComment(comentario);
     }
 
     @When("doy clic en el boton Comment")
     public void doy_clic_en_el_boton_comment() {
-
+        buzzPage.addComment();
     }
 
     @Then("^se debe agregar a la lista, (.+)$")
     public void se_debe_agregar_a_la_lista_el_nuevo_comentario(String comentario) {
         List<String> list = buzzPage.getComment();
-        System.out.println(list.contains(comentario));
-        System.out.println(comentario);
         boolean textIsThere = list.contains(comentario);
+
         if (textIsThere) {
             System.out.println("Se agrego el comentario correctamente");
         } else {
@@ -61,9 +64,9 @@ public class ModuloBuzzSteps {
         buzzPage.confirmShare();
     }
 
-    @Then("^debe aparece el aviso (.+)$")
-    public void debe_aparece_el_aviso_success_successfully(String criteria) {
-
+    @Then("^debe aparece el aviso Successfully Shared$")
+    public void debe_aparece_el_aviso_success_successfully() {
+        buzzPage.validateShare();
     }
 
 

@@ -52,6 +52,7 @@ public class BasePage {
     public void clickElement(String locator) {
         Find(locator).click();
     }
+
     public void clickElementCss(String locator) {
         FindCssSelector(locator).click();
     }
@@ -151,7 +152,7 @@ public class BasePage {
     }
 
     public List<WebElement> bringMeAllElements(String locator) {
-        return driver.findElements(By.xpath(locator));
+        return driver.findElements(By.className(locator));
     }
 
     //Funcion para mostrar el type ="file" en caso de estar oculto
@@ -163,7 +164,7 @@ public class BasePage {
         js.executeScript(change_visiblility);
     }
 
-    public void maxWindow(){
+    public void maxWindow() {
         driver.manage().window().maximize();
     }
 }
